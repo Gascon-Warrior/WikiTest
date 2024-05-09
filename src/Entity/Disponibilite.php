@@ -26,6 +26,9 @@ class Disponibilite
     #[ORM\Column]
     private ?bool $statut = null;
 
+    #[ORM\ManyToOne(inversedBy: 'disponibilite')]
+    private ?Vehicule $vehicule = null;
+
     public function getId(): ?int
     {
         return $this->id;
@@ -75,6 +78,18 @@ class Disponibilite
     public function setStatut(bool $statut): static
     {
         $this->statut = $statut;
+
+        return $this;
+    }
+
+    public function getVehicule(): ?Vehicule
+    {
+        return $this->vehicule;
+    }
+
+    public function setVehicule(?Vehicule $vehicule): static
+    {
+        $this->vehicule = $vehicule;
 
         return $this;
     }
