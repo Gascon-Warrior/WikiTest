@@ -9,6 +9,9 @@ module.exports = {
       colors: {
         "th-orange": "#D4683E",        
       },
+      backgroundImage: {
+       "van-sunset": "url('/img/van-sunset.webp')"
+      }
     },
   },
   plugins: [

@@ -4,6 +4,7 @@ namespace App\Entity;
 
 use App\Repository\DisponibiliteRepository;
 use Doctrine\DBAL\Types\Types;
+use Symfony\Component\Validator\Constraints as Assert;
 use Doctrine\ORM\Mapping as ORM;
 
 #[ORM\Entity(repositoryClass: DisponibiliteRepository::class)]
@@ -15,12 +16,21 @@ class Disponibilite
     private ?int $id = null;
 
     #[ORM\Column(type: Types::DATE_MUTABLE)]
+    #[Assert\NotBlank(message: "Veuillez renseigner une date de début.")]
+    #[Assert\type("DateTime", message: "Veuillez entrer une date de début dans un format valide exemple: 01/06/2024")]
+    #[Assert\LessThan(propertyPath:"date_fin", message:"La date de début doit être antèrieure a la date de fin.")]
+    #[Assert\GreaterThan("today", message:"La date de début doit être ultèrieure a aujourd'hui.")]
     private ?\DateTimeInterface $date_debut = null;
 
     #[ORM\Column(type: Types::DATE_MUTABLE)]
+    #[Assert\NotBlank(message: "Veuillez renseigner une date de fin")]
+    #[Assert\Type("DateTime", message: "Veuillez entrer une date de fin dans un format valide exemple: 01/06/2024")]
+    #[Assert\GreaterThan(propertyPath:"date_debut", message:"La date de fin doit être ultèrieure a la date de début.")]
     private ?\DateTimeInterface $date_fin = null;
 
     #[ORM\Column]
+    #[Assert\NotBlank(message: "Veuillez renseigner un prix de de location par jour.")]
+    #[Assert\Positive(message: "Le prix doit être supérieur a 0.")]
     private ?int $prix_jour = null;
 
     #[ORM\Column]

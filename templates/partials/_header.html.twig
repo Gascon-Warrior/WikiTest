@@ -1,10 +1,9 @@
-<header class="w-full px-4 py-4 bg-white">
+<header class="w-full px-4 py-4 bg-white h-[80px]">
 	<nav class="flex justify-between">
-        <div><a href="#"><img src="{{ asset('logos/logo.png')}}" alt=""></a></div>
-		<ul class="text-black">
-			<li class="px-4 py-2 font-bold text-white rounded bg-th-orange"><a href="#">Louer mon comping car</a></li>
-			<li><a href="#"></a></li>
-			<li><a href="#"></a></li>
+        <div><a href="{{ path('app_index_') }}"><img src="{{ asset('logos/logo.png')}}" alt=""></a></div>
+		<ul class="flex flex-row gap-3 text-black">
+			<li class="font-bold text-white rounded bg-th-orange"><a class="block h-full px-4 py-2 leading-8" href="{{ path('vehicle_owner_add') }}">Louer mon comping car</a></li>
+			<li class="font-bold text-white rounded bg-th-orange"><a class="block h-full px-4 py-2 leading-8" href="{{ path('disponibilite_index')}}">Voir mes disponibilités</a></li>			
 		</ul>
 	</nav>
 </header>

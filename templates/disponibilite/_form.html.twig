@@ -1,0 +1,9 @@
+{% form_theme disponibiliteForm 'partials/_customForm.html.twig' %}
+
+{{ form_start(disponibiliteForm) }}
+    {{ form_row(disponibiliteForm.date_debut) }}
+	{{ form_row(disponibiliteForm.date_fin) }}
+	{{ form_row(disponibiliteForm.prix_jour) }}
+	{{ form_row(disponibiliteForm.statut) }}
+	<button type='submit' class="px-3 py-2 mt-10 text-sm font-semibold text-white bg-green-600 rounded-md shadow-sm hover:bg-green-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-green-600">{{button_label|default('Ajouter')}}</button>
+{{ form_end(disponibiliteForm) }}
