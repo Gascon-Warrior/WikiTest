@@ -1,65 +1,35 @@
-# Titre du projet
-_(juste en dessous des badges sympatiques à placer)_
+## INSTALL SYMFONY
+curl -1sLf 'https://dl.cloudsmith.io/public/symfony/stable/setup.deb.sh' | sudo -E bash
+sudo apt install symfony-cli
 
-[![forthebadge](http://forthebadge.com/images/badges/built-with-love.svg)](http://forthebadge.com)  [![forthebadge](http://forthebadge.com/images/badges/powered-by-electricity.svg)](http://forthebadge.com)
+## INSTALL COMPOSER
+php -r "copy('https://getcomposer.org/installer', 'composer-setup.php');"
+php -r "if (hash_file('sha384', 'composer-setup.php') === 'dac665fdc30fdd8ec78b38b9800061b4150413ff2e3b6f88543c636f7cd84f6db9189d43a81e5503cda447da73c7e5b6') { echo 'Installer verified'; } else { echo 'Installer corrupt'; unlink('composer-setup.php'); } echo PHP_EOL;"
+php composer-setup.php
+php -r "unlink('composer-setup.php');"
 
-Une petite description du projet
+## INSTALL DEPENDENCIES
+run `php composer.phar install`
 
-## Pour commencer
+## INSTALL ORM-PACK
+run `php composer.phar require symfony/orm-pack`
 
-Entrez ici les instructions pour bien débuter avec votre projet...
+## INSTALL MAKER-BUNDLE
+run `php composer.phar require --dev symfony/maker-bundle`
 
-### Pré-requis
+## CREATE DATABASE
+1. copy .env file
+2. rename it .env.local
+3. comment line 29
+4. replace line 28 with DATABASE_URL="mysql://app:!ChangeMe!@127.0.0.1:3306/app?serverVersion=10.11.2-MariaDB&charset=utf8mb4"
+** /!\ replace !ChangeMe! with your user and password and database name /!\ **
+run `sudo php bin/console doctrine:database:create`
 
-Ce qu'il est requis pour commencer avec votre projet...
+## MIGRATE
+run `sudo php bin/console doctrine:migrations:migrate`
 
-- Programme 1
-- Programme 2
-- etc...
+## LOAD FIXTURES
+run `sudo php bin/console doctrine:fixtures:load`
 
-### Installation
-
-Les étapes pour installer votre programme....
-
-Dites ce qu'il faut faire...
-
-_exemple_: Executez la commande ``telnet mapscii.me`` pour commencer ensuite [...]
-
-
-Ensuite vous pouvez montrer ce que vous obtenez au final...
-
-## Démarrage
-
-Dites comment faire pour lancer votre projet
-
-## Fabriqué avec
-
-Entrez les programmes/logiciels/ressources que vous avez utilisé pour développer votre projet
-
-_exemples :_
-* [Materialize.css](http://materializecss.com) - Framework CSS (front-end)
-* [Atom](https://atom.io/) - Editeur de textes
-
-## Contributing
-
-Si vous souhaitez contribuer, lisez le fichier [CONTRIBUTING.md](https://example.org) pour savoir comment le faire.
-
-## Versions
-Listez les versions ici 
-_exemple :_
-**Dernière version stable :** 5.0
-**Dernière version :** 5.1
-Liste des versions : [Cliquer pour afficher](https://github.com/your/project-name/tags)
-_(pour le lien mettez simplement l'URL de votre projets suivi de ``/tags``)_
-
-## Auteurs
-Listez le(s) auteur(s) du projet ici !
-* **Jhon doe** _alias_ [@outout14](https://github.com/outout14)
-
-Lisez la liste des [contributeurs](https://github.com/your/project/contributors) pour voir qui à aidé au projet !
-
-_(pour le lien mettez simplement l'URL de votre projet suivi de ``/contirubors``)_
-
-## License
-
-Ce projet est sous licence ``exemple: WTFTPL`` - voir le fichier [LICENSE.md](LICENSE.md) pour plus d'informations
+## START SERVER
+run `symfony server:start`
