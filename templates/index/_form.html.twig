@@ -1,0 +1,8 @@
+{% form_theme searchForm 'partials/_customForm.html.twig' %}
+
+{{ form_start(searchForm) }}
+    {{ form_row(searchForm.date_debut) }}
+	{{ form_row(searchForm.date_fin) }}
+	{{ form_row(searchForm.prix_max) }}
+	<button type='submit' class="px-3 py-2 mt-10 text-sm font-semibold text-white bg-green-600 rounded-md shadow-sm hover:bg-green-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-green-600">{{button_label|default('Rechercher')}}</button>
+{{ form_end(searchForm) }}

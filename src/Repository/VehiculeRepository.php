@@ -16,6 +16,17 @@ class VehiculeRepository extends ServiceEntityRepository
         parent::__construct($registry, Vehicule::class);
     }
 
+    /**
+     * @return Vehicule[] Retourne un tableau d'objet Vehicule trié par ID
+     */
+    public function findAllOrderedById()
+    {
+        return $this->createQueryBuilder('v')
+            ->orderBy('v.id', 'DESC')
+            ->getQuery()
+            ->getResult();
+    }
+
     //    /**
     //     * @return Vehicule[] Returns an array of Vehicule objects
     //     */

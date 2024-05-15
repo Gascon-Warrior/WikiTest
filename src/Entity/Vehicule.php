@@ -5,6 +5,7 @@ namespace App\Entity;
 use App\Repository\VehiculeRepository;
 use Doctrine\Common\Collections\ArrayCollection;
 use Doctrine\Common\Collections\Collection;
+use Symfony\Component\Validator\Constraints as Assert;
 use Doctrine\ORM\Mapping as ORM;
 
 #[ORM\Entity(repositoryClass: VehiculeRepository::class)]
@@ -16,15 +17,29 @@ class Vehicule
     private ?int $id = null;
 
     #[ORM\Column(length: 255)]
+    #[Assert\NotBlank(message: 'Le champ marque doit être renseigné')]
+    #[Assert\Length(
+        min: 3,
+        max: 255,
+        minMessage: 'Le champ marque doit faire {{ limit }} caractères minimum.',
+        maxMessage: 'Le champ marque doit faire {{ limit }} caractères maximum.'
+    )]
     private ?string $marque = null;
 
     #[ORM\Column(length: 255)]
+    #[Assert\NotBlank(message: 'Le champ modèle doit être renseigné')]
+    #[Assert\Length(
+        min: 3,
+        max: 255,
+        minMessage: 'Le champ modèle doit faire {{ limit }} caractères minimum.',
+        maxMessage: 'Le champ modèle doit faire {{ limit }} caractères maximum.'
+    )]
     private ?string $modele = null;
 
     /**
      * @var Collection<int, Disponibilite>
      */
-    #[ORM\OneToMany(targetEntity: Disponibilite::class, mappedBy: 'vehicule')]
+    #[ORM\OneToMany(targetEntity: Disponibilite::class, mappedBy: 'vehicule', cascade: ['remove'])]
     private Collection $disponibilite;
 
     public function __construct()

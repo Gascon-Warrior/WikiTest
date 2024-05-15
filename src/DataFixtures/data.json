@@ -1,0 +1,86 @@
+{
+    "vehicules": [
+        {
+            "marque": "Mercedes",
+            "modele": "Marco Polo 300d 9G-Tronic RWD",
+            "disponibilites": [
+                {
+                    "date_debut": "2024-06-01",
+                    "date_fin": "2024-06-15",
+                    "prix_jour": 50,
+                    "statut": true
+                },
+                {
+                    "date_debut": "2024-07-10",
+                    "date_fin": "2024-08-18",
+                    "prix_jour": 100,
+                    "statut": true
+                }
+            ]
+        },
+        {
+            "marque": "Fiat",
+            "modele": "Talento - SmartCombee",
+            "disponibilites": [
+                {
+                    "date_debut": "2024-10-15",
+                    "date_fin": "2024-12-10",
+                    "prix_jour": 70,
+                    "statut": true
+                },
+                {
+                    "date_debut": "2025-01-15",
+                    "date_fin": "2025-04-15",
+                    "prix_jour": 70,
+                    "statut": true
+                }
+            ]
+        },
+        {
+            "marque": "Volkswagen",
+            "modele": "ID. Buzz Cargo",
+            "disponibilites": [
+                {
+                    "date_debut": "2024-06-01",
+                    "date_fin": "2024-09-15",
+                    "prix_jour": 150,
+                    "statut": true
+                }
+            ]
+        },      {
+            "marque": "Ford",
+            "modele": "Transit custom nugget",
+            "disponibilites": [
+                {
+                    "date_debut": "2024-05-21",
+                    "date_fin": "2024-10-15",
+                    "prix_jour": 100,
+                    "statut": true
+                },
+                {
+                    "date_debut": "2024-11-01",
+                    "date_fin": "2025-02-15",
+                    "prix_jour": 70,
+                    "statut": true
+                },
+                {
+                    "date_debut": "2025-04-01",
+                    "date_fin": "2025-05-15",
+                    "prix_jour": 70,
+                    "statut": true
+                }
+            ]
+        },      {
+            "marque": "Fiat",
+            "modele": "Talento - SmartCombee",
+            "disponibilites": [
+                {
+                    "date_debut": "2024-03-01",
+                    "date_fin": "2024-03-15",
+                    "prix_jour": 45,
+                    "statut": true
+                }
+            ]
+        }
+    ]
+}
