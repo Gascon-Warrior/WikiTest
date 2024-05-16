@@ -1,3 +1,7 @@
+## VERSIONS
+Symfony 6.4
+PHP 8.2
+
 ## INSTALL SYMFONY
 curl -1sLf 'https://dl.cloudsmith.io/public/symfony/stable/setup.deb.sh' | sudo -E bash
 sudo apt install symfony-cli
