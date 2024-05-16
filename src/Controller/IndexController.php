@@ -47,8 +47,7 @@ class IndexController extends AbstractController
                     $criteres['date_fin'] = (clone $DateFinOriginale)->modify($ajustement[1]);
                     $disponibilites = $disponibiliteRepository->findByDate($criteres);
     
-                    if ($disponibilites) {
-                        dump('Trouvé avec ajustement', $ajustement, $criteres['date_debut'], $criteres['date_fin']);
+                    if ($disponibilites) {                        
                         break;
                     }
                 }
